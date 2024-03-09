@@ -29,15 +29,15 @@ export const registerUser = async (registerFormData) => {
   }
 };
 
-export const loginUser = async (loginFormData, setJWT) => {
+export const loginUser = async (loginFormData) => {
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BACKEND_AUTH}/login`,
       loginFormData
     );
     const data = response.data;
-    console.log(data);
-    setJWT(data.token);
+    console.log(data.token);
+    localStorage.setItem("jwtToken", data.token);
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

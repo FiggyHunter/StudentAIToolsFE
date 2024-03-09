@@ -1,11 +1,22 @@
 "use client";
-
 import useLogin from "@/hooks/useLogin";
-import { useJwtStore } from "@/stores/useJWTStore";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useJwt } from "react-jwt";
 
 export default function Login() {
+  const router = useRouter();
+  const jwt = localStorage.getItem("jwtToken");
+  const token = useJwt(jwt);
+  console.log(token);
+
+  useEffect(() => {
+    if (token?.decodedToken && !token?.isExpired) {
+      router.push("/dashboard");
+    }
+  }, [token?.decodedToken, router]);
+
   const {
     handleInputChange,
     handleLogin,
@@ -13,8 +24,6 @@ export default function Login() {
     loginFormData,
     setLoginErrors,
   } = useLogin();
-
-  const { jwt, setJWT } = useJwtStore();
 
   return (
     <div className="bg-primaryColor p-10 lg:p-16 grid md:grid-cols-2 gap-10 min-h-[100vh] box-border">
@@ -28,10 +37,10 @@ export default function Login() {
               </label>
               <input
                 className="input"
-                id="email"
+                name="email"
                 type="text"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                value={loginFormData.email}
+                onChange={(e) => handleInputChange(e)}
                 placeholder="Email"
               />
             </div>
@@ -42,17 +51,22 @@ export default function Login() {
               </label>
               <input
                 className="input"
-                id="password"
+                name="password"
                 type="password"
-                value={user.password}
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
+                value={loginFormData.password}
+                onChange={(e) => handleInputChange(e)}
                 placeholder="Enter your password"
               />
             </div>
           </div>
 
           <div className="flex flex-col gap-4">
-            <button className="button primary w-full">Log In</button>
+            <button
+              onClick={() => handleLogin(router)}
+              className="button primary w-full"
+            >
+              Log In
+            </button>
             <span className="text-text">
               Don't have an account?{" "}
               <Link className="link" href="/register">
