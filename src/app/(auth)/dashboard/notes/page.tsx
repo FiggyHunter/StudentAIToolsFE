@@ -1,29 +1,26 @@
-import Note from "./components/Note"
+"use client";
+
+import { useEffect, useState } from "react";
+import Note from "./components/Note";
+import { fetchAllNotes } from "@/apiHandlers/notes";
+
+// Fetch arr notes
+// store u state
+//
 
 export default function Page() {
-    const notes = [
-        {
-            "id":"232312",
-            "title": "Title 1",
-            "text": "sdasdasdasd",
-            "createdAt": "2024-03-09T20:08:19.489Z"
-        },
-        {
-            "id":"12312",
-            "title": "Title 2",
-            "text": "sdasd",
-            "createdAt": "2024-03-09T20:08:19.489Z"
-        },
-    ]
+  const [notes, setNotes] = useState();
 
-    return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
-            {notes.map((note,index)=>(
-                <Note 
-                    id={note.id}
-                    key={index}
-                />
-            ))}
-        </div>
-    )
+  console.log(notes);
+
+  useEffect(() => {
+    fetchAllNotes(setNotes);
+  }, []);
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
+      {notes?.map((note, index) => (
+        <Note id={note.id} title={note.title} text={note.text} key={index} />
+      ))}
+    </div>
+  );
 }

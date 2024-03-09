@@ -14,10 +14,10 @@ export const getAllUsers = async () => {
   }
 };
 
-export const registerUser = async (jwt, registerFormData) => {
+export const registerUser = async (registerFormData) => {
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_API}/users`,
+      `${process.env.NEXT_PUBLIC_BACKEND_AUTH}/register`,
       registerFormData
     );
     const data = response.data;
