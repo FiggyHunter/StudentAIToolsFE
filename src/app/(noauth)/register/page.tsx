@@ -66,10 +66,8 @@ export default function Register() {
         placeholder="password"
       />
 
-      <input type="date" onChange={(e) => console.log(e.target.value)} />
-
       <button
-        onClick={() => handleRegister()}
+        onClick={() => handleRegister("")}
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
       >
         Sign Up
