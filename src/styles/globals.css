@@ -49,6 +49,14 @@ h1,h2,h3,h4,h5,h6 {
   @apply bg-white text-secondaryColor
 }
 
+.button.secondary {
+  @apply bg-primaryTint2/50 text-white
+}
+
+.button.secondary:hover {
+  @apply bg-primaryTint2
+}
+
 .button.special {
   color: white;
   background: rgb(203,72,249);

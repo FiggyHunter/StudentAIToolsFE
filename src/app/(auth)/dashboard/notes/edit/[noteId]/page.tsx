@@ -23,27 +23,35 @@ export default function Page({ params }: { params: { noteId: string } }) {
 
   return (
     <div>
-      <label htmlFor="title"></label>
-      <input
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          handleChange(e);
-        }}
-        id="title"
-        name="title"
-        type="text"
-        value={note.title}
-      />
-      <label htmlFor="text"></label>
-      <input
-        id="text"
-        name="text"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          handleChange(e);
-        }}
-        value={note.text}
-        type="text"
-      />
-      <button onClick={() => editNote(note)}>Save changes to note</button>
+      <div className="flex flex-col gap-2">
+        <label className="label" htmlFor="title"></label>
+        <input
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            handleChange(e);
+          }}
+          className="label"
+          id="title"
+          name="title"
+          type="text"
+          value={note.title}
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className="label" htmlFor="text"></label>
+        <input
+          className="input"
+          id="text"
+          name="text"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            handleChange(e);
+          }}
+          value={note.text}
+          type="text"
+        />
+      </div>
+
+      <button className="primary button w-fit" onClick={() => editNote(note)}>Save changes to note</button>
     </div>
   );
 }
