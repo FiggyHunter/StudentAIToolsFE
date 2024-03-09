@@ -2,6 +2,7 @@
 
 import { getAllUsers } from "@/apiHandlers/user";
 import { useEffect, useState } from "react";
+import "@/styles/globals.css";
 
 export default function Home() {
   const [user, setUser] = useState();
