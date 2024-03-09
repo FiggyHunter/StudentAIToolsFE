@@ -11,7 +11,7 @@ const Note: React.FC<NoteProps> = ({ id, title, text }) => {
   return (
     <Link
       href={`/dashboard/notes/${id}`}
-      className="aspect-square bg-[#F7F18E] p-4 flex flex-col gap-4 w-full rounded-2xl box-border no-underline"
+      className="aspect-square bg-[#F7F18E] hover:bg-[#d5cf7b] transition p-4 flex flex-col gap-4 w-full rounded-2xl box-border no-underline"
     >
       <div className="flex gap-2 justify-between items-center">
         <p className="text-extrabold text-xl text-[#82362D]">{title}</p>

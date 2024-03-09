@@ -21,12 +21,22 @@ export default function Page() {
     <div className="flex flex-col gap-10">
       <div className="flex items-center justify-between">
         <h1 className="text-4xl text-white">Notes</h1>
-        <Link href={`/dashboard/notes/add`} className="primary button no-underline w-fit">+ Add New Note</Link>
+        <Link
+          href={`/dashboard/notes/add`}
+          className="primary button no-underline w-fit"
+        >
+          + Add New Note
+        </Link>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
         {notes ? (
           notes.map((note, index) => (
-            <Note id={note._id} title={note.title} text={note.text} key={index} />
+            <Note
+              id={note._id}
+              title={note.title}
+              text={note.text}
+              key={index}
+            />
           ))
         ) : (
           <p className="text-text">No notes available</p>

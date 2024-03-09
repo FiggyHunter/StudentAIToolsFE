@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export const fetchAllNotes = async (setNotes) => {
   try {
@@ -24,12 +25,25 @@ export const fetchNoteById = async (noteId, setNote) => {
   }
 };
 
-export const editNote = async (note) => {
+export const editNote = async (note, router) => {
   try {
     const uri = `${process.env.NEXT_PUBLIC_BACKEND_API}/notes`;
     const response = await axios.put(`${uri}/${note._id}`, note);
     const data = response.data;
     console.log(data);
+    router.push("/dashboard/notes");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addNewNote = async (note, router) => {
+  try {
+    const uri = `${process.env.NEXT_PUBLIC_BACKEND_API}/note`;
+    const response = await axios.post(`${uri}`, note);
+    const data = response.data;
+    console.log(data);
+    router.push("/dashboard/notes");
   } catch (error) {
     console.log(error);
   }

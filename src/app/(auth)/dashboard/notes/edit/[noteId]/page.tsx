@@ -1,6 +1,8 @@
 "use client";
 
 import { editNote, fetchNoteById } from "@/apiHandlers/notes";
+import GoBack from "@/components/shared/GoBack";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page({ params }: { params: { noteId: string } }) {
@@ -21,26 +23,35 @@ export default function Page({ params }: { params: { noteId: string } }) {
     }));
   };
 
+  const router = useRouter();
+
   return (
-    <div>
-      <div className="flex flex-col gap-2">
-        <label className="label" htmlFor="title"></label>
-        <input
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            handleChange(e);
-          }}
-          className="label"
-          id="title"
-          name="title"
-          type="text"
-          value={note.title}
-        />
+    <div className="flex flex-col gap-5">
+      <GoBack />
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2 w-full max-w-[400px]">
+          <label className="label" htmlFor="title">
+            Note Title
+          </label>
+          <input
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              handleChange(e);
+            }}
+            className="input"
+            id="title"
+            name="title"
+            type="text"
+            value={note.title}
+          />
+        </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label className="label" htmlFor="text"></label>
-        <input
-          className="input"
+      <div className="flex flex-col gap-2 max-w-[400px]">
+        <label className="label" htmlFor="text">
+          Note Text
+        </label>
+        <textarea
+          className="input min-h-[300px]"
           id="text"
           name="text"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +62,12 @@ export default function Page({ params }: { params: { noteId: string } }) {
         />
       </div>
 
-      <button className="primary button w-fit" onClick={() => editNote(note)}>Save changes to note</button>
+      <button
+        className="primary button w-fit"
+        onClick={() => editNote(note, router)}
+      >
+        Save changes to note
+      </button>
     </div>
   );
 }
