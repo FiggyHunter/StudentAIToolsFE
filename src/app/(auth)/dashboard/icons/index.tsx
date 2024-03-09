@@ -35,3 +35,8 @@ export const TextToSpeech = (<svg width="18" height="22" viewBox="0 0 18 22" fil
 </svg>
 );
 
+export const Notes = (
+    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4322 22.0984H2.62863C1.32681 22.0984 0.271484 21.043 0.271484 19.7412V2.45553C0.271484 1.15372 1.32681 0.0983887 2.62863 0.0983887H19.9143C21.2161 0.0983887 22.2715 1.15372 22.2715 2.45553V13.2583H14.4143C13.8719 13.2583 13.4322 13.6981 13.4322 14.2405V22.0984ZM15.3964 21.1162L21.2901 15.2226H15.3964V21.1162Z" fill="white"/>
+    </svg>
+);
