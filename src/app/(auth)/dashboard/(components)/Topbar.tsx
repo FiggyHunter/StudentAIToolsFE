@@ -25,7 +25,7 @@ const Topbar:React.FC<TopbarProps> = ({toggleSidebar, routeItems}) => {
                     <div className="h-[2px] w-[32px] rounded-full bg-white"></div>
                     <div className="h-[2px] w-[32px] rounded-full bg-white"></div>
                 </div>
-                <div className="flex items-center gap-2 w-full">
+                <div className="max-sm:hidden flex items-center gap-2 w-full">
                   {routeItems?.map((item,index) => (
                       <div className="flex gap-2 items-center">
                         <span className="text-primaryTint4 font-medium text-sm uppercase tracking-widest">{item}</span>

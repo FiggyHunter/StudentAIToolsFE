@@ -38,26 +38,31 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
                   featureName="File To .md"
                   icon={fileToMd}
                   bgColor="red-gradient"
+                  tabLink="file-to-md"
                 />
                 <SidebarItem
                   featureName="Summary From .md"
                   icon={MdToSummary}
                   bgColor="blue-gradient"
+                  tabLink="summary-to-md"
                 />
                 <SidebarItem
                   featureName="Tasks from .md"
                   icon={TasksFromMd}
                   bgColor="green-gradient"
+                  tabLink="tasks-from-md"
                 />
                 <SidebarItem
                   featureName="AI Check Grammar"
                   icon={AiCheckGrammar}
                   bgColor="lime-gradient"
+                  tabLink="ai-check-grammar"
                 />
                 <SidebarItem
                   featureName="Text to speech"
                   icon={TextToSpeech}
                   bgColor="orange-gradient"
+                  tabLink="text-to-speech"
                 />
               </div>
             </div>
@@ -69,6 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
                   icon={Notes}
                   bgColor="bright-yellow-gradient"
                   isActive={pathname === "/dashboard/notes"}
+                  tabLink="/dashboard/notes"
                 />
               </div>
             </div>
