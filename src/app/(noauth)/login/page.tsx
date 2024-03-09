@@ -1,9 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function Login() {
-  const router = useRouter();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -42,10 +42,7 @@ export default function Login() {
         onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder="password"
       />
-      <button
-        onClick={onLogin}
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-      >
+      <button className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">
         Login here
       </button>
       <Link href="/register">Visit Signup page</Link>
