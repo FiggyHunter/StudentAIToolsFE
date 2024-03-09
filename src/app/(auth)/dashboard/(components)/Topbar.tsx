@@ -2,11 +2,16 @@
 
 import Avatar from "./Avatar"
 
+interface RouteParams {
+  [index: number]: string;
+}
+
 interface TopbarProps {
     toggleSidebar: (isOpen: boolean) => void;
+    routeItems?: RouteParams;
 }  
 
-const Topbar:React.FC<TopbarProps> = ({toggleSidebar}) => {
+const Topbar:React.FC<TopbarProps> = ({toggleSidebar, routeItems}) => {
   const handleSidebarToggle = () => {
     toggleSidebar(true);
   };
@@ -20,7 +25,14 @@ const Topbar:React.FC<TopbarProps> = ({toggleSidebar}) => {
                     <div className="h-[2px] w-[32px] rounded-full bg-white"></div>
                     <div className="h-[2px] w-[32px] rounded-full bg-white"></div>
                 </div>
-                <span className="text-primaryTint4 font-medium text-sm uppercase tracking-widest">Dashboard</span>
+                <div className="flex items-center gap-2 w-full">
+                  {routeItems?.map((item,index) => (
+                      <div className="flex gap-2 items-center">
+                        <span className="text-primaryTint4 font-medium text-sm uppercase tracking-widest">{item}</span>
+                        {index!==routeItems.length-1 && <span className="text-primaryTint4 font-medium text-sm uppercase">/</span>}
+                      </div>
+                  ))}
+                </div>
             </div>
             <Avatar/>
         </div>
