@@ -1,7 +1,3 @@
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-red-500">
-      Dashboard
-    </main>
-  );
+export default function Page() {
+  return <h1 className="text-white">Ado je baba</h1>
 }

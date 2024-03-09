@@ -48,3 +48,51 @@ h1,h2,h3,h4,h5,h6 {
 .button.primary:hover {
   @apply bg-white text-secondaryColor
 }
+
+.button.special {
+  color: white;
+  background: rgb(203,72,249);
+  background: linear-gradient(150deg, rgba(203,72,249,1) 0%, rgba(168,47,90,1) 56%, rgba(190,92,36,1) 100%);
+}
+
+.button.special:hover {
+  transform: translateY(-5px);
+}
+
+/* SIDEBAR ITEM */
+
+.sidebarItem.active {
+  @apply bg-white
+}
+
+.sidebarItem.active span {
+  @apply text-primaryColor
+}
+
+/* GRADIENTS */
+
+.red-gradient {
+  background: rgb(246,84,84);
+  background: linear-gradient(150deg, rgba(246,84,84,1) 0%, rgba(159,21,21,1) 100%);
+}
+
+.blue-gradient {
+  background: rgb(84,237,246);
+  background: linear-gradient(150deg, rgba(84,237,246,1) 0%, rgba(57,71,144,1) 100%);
+}
+
+.green-gradient {
+  background: rgb(32,210,40);
+  background: linear-gradient(150deg, rgba(32,210,40,1) 0%, rgba(85,190,76,1) 100%);
+}
+
+.lime-gradient {
+  background: rgb(45,149,111);
+  background: linear-gradient(150deg, rgba(45,149,111,1) 0%, rgba(38,174,142,1) 100%);
+}
+
+.orange-gradient {
+  background: rgb(246,211,84);
+  background: linear-gradient(150deg, rgba(246,211,84,1) 0%, rgba(159,104,21,1) 100%);
+}
+
