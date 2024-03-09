@@ -14,14 +14,30 @@ export const getAllUsers = async () => {
   }
 };
 
-export const registerUser = async (jwt, registerFormData) => {
+export const registerUser = async (registerFormData) => {
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_API}/users`,
+      `${process.env.NEXT_PUBLIC_BACKEND_AUTH}/register`,
       registerFormData
     );
     const data = response.data;
     console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return { error: "Internal Server Error" };
+  }
+};
+
+export const loginUser = async (loginFormData, setJWT) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_BACKEND_AUTH}/login`,
+      loginFormData
+    );
+    const data = response.data;
+    console.log(data);
+    setJWT(data.token);
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

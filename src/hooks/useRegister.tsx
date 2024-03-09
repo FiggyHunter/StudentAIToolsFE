@@ -15,7 +15,7 @@ const useRegister = () => {
     lastName: "",
     password: "",
     repeatPassword: "",
-    dob: "",
+    dateOfBirth: "",
   });
   const [registerErrors, setRegisterErrors] = useState<RegisterErrorData>({
     email: null,
@@ -23,7 +23,7 @@ const useRegister = () => {
     lastName: null,
     password: null,
     repeatPassword: null,
-    dob: "",
+    dateOfBirth: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,11 +34,11 @@ const useRegister = () => {
     }));
   };
 
-  const handleRegister = async (buttonId: string) => {
+  const handleRegister = async () => {
     try {
       // setButtonLoading(buttonId, true);
       await registerValidator(registerFormData, setRegisterErrors);
-      await registerUser("", registerFormData);
+      await registerUser(registerFormData);
 
       await setRegisterFormData({
         email: "",
@@ -46,7 +46,7 @@ const useRegister = () => {
         lastName: "",
         password: "",
         repeatPassword: "",
-        dob: "",
+        dateOfBirth: "",
       });
       // setButtonLoading(buttonId, false);
 

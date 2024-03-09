@@ -4,7 +4,7 @@ export type RegisterFormData = {
   lastName: string;
   password: string;
   repeatPassword: string;
-  dob: Date | String;
+  dateOfBirth: Date | String;
 };
 
 export type RegisterFormDataAPI = {
@@ -20,5 +20,5 @@ export type RegisterErrorData = {
   lastName: null | string;
   password: null | string;
   repeatPassword: null | string;
-  dob: null | string;
+  dateOfBirth: null | string;
 };

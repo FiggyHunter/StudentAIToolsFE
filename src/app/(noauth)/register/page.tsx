@@ -3,9 +3,8 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-
 import useRegister from "@/hooks/useRegister";
-import { CalendarDemo } from "@/components/login/Calendar";
+import DateInputMask from "@/components/register/DateMask";
 
 export default function Register() {
   const router = useRouter();
@@ -67,8 +66,10 @@ export default function Register() {
         placeholder="password"
       />
 
+      <input type="date" onChange={(e) => console.log(e.target.value)} />
+
       <button
-        onClick={() => handleRegister("")}
+        onClick={() => handleRegister()}
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
       >
         Sign Up
