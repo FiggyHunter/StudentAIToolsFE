@@ -4,7 +4,11 @@ import { addNewNote, fetchNoteById } from "@/apiHandlers/notes";
 import { useEffect, useState } from "react";
 
 export default function Page({ params }: { params: { noteId: string } }) {
-  const [note, setNote] = useState({ title: "", text: "" });
+  const [note, setNote] = useState({
+    noteId: "RIJERRE23UU",
+    title: "",
+    text: "",
+  });
   useEffect(() => {
     fetchNoteById(params.noteId, setNote);
   }, []);
