@@ -24,10 +24,10 @@ export const fetchNoteById = async (noteId, setNote) => {
   }
 };
 
-export const addNewNote = async (note) => {
+export const editNote = async (note) => {
   try {
     const uri = `${process.env.NEXT_PUBLIC_BACKEND_API}/notes`;
-    const response = await axios.put(`${uri}?noteId=${note._id}`, note);
+    const response = await axios.put(`${uri}/${note._id}`, note);
     const data = response.data;
     console.log(data);
   } catch (error) {

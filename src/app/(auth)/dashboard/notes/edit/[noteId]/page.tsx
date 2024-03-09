@@ -1,11 +1,11 @@
 "use client";
 
-import { addNewNote, fetchNoteById } from "@/apiHandlers/notes";
+import { editNote, fetchNoteById } from "@/apiHandlers/notes";
 import { useEffect, useState } from "react";
 
 export default function Page({ params }: { params: { noteId: string } }) {
   const [note, setNote] = useState({
-    noteId: "RIJERRE23UU",
+    noteId: params.noteId,
     title: "",
     text: "",
   });
@@ -43,7 +43,7 @@ export default function Page({ params }: { params: { noteId: string } }) {
         value={note.text}
         type="text"
       />
-      <button onClick={() => addNewNote(note)}>Add a new note</button>
+      <button onClick={() => editNote(note)}>Save changes to note</button>
     </div>
   );
 }
