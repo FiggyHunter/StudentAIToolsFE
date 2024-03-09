@@ -16,6 +16,11 @@
   }
 }
 
+@font-face {
+  font-family: "Cabin";
+  src: url("/fonts/Cabin-Regular.ttf");
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
