@@ -4,7 +4,7 @@ import SidebarItem from "./SidebarItem"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { fileToMd, MdToSummary, TasksFromMd, AiCheckGrammar, TextToSpeech, Notes } from "../icons"
+import { SummaCraft, SummaPlus, SummaTasks, SyntaxSense, SpeecifyMe, Notes, SummarizedText } from "../icons"
 import { useState } from "react";
 
 interface SidebarProps {
@@ -35,34 +35,39 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
               <span className="text-primaryTint3 uppercase text-[12px] tracking-normal font-bold">Features</span>
               <div className="flex flex-col gap-2 w-full">
                 <SidebarItem
-                  featureName="File To .md"
-                  icon={fileToMd}
+                  featureName="SummaCraft"
+                  icon={SummaCraft}
                   bgColor="red-gradient"
-                  tabLink="file-to-md"
+                  tabLink="/dashboard/summa-craft"
+                  isActive={pathname === "/dashboard/summa-craft"}
                 />
                 <SidebarItem
-                  featureName="Summary From .md"
-                  icon={MdToSummary}
+                  featureName="SummaPlus"
+                  icon={SummaPlus}
                   bgColor="blue-gradient"
-                  tabLink="summary-to-md"
+                  tabLink="/dashboard/summa-plus"
+                  isActive={pathname === "/dashboard/summa-plus"}
                 />
                 <SidebarItem
-                  featureName="Tasks from .md"
-                  icon={TasksFromMd}
-                  bgColor="green-gradient"
-                  tabLink="tasks-from-md"
-                />
-                <SidebarItem
-                  featureName="AI Check Grammar"
-                  icon={AiCheckGrammar}
-                  bgColor="lime-gradient"
-                  tabLink="ai-check-grammar"
-                />
-                <SidebarItem
-                  featureName="Text to speech"
-                  icon={TextToSpeech}
+                  featureName="SpeechifyMe"
+                  icon={SpeecifyMe}
                   bgColor="orange-gradient"
-                  tabLink="text-to-speech"
+                  tabLink="/dashboard/speechify-me"
+                  isActive={pathname === "/dashboard/speechify-me"}
+                />
+                <SidebarItem
+                  featureName="SyntaxSense"
+                  icon={SyntaxSense}
+                  bgColor="lime-gradient"
+                  tabLink="/dashboard/syntax-sense"
+                  isActive={pathname === "/dashboard/syntax-sense"}
+                />
+                <SidebarItem
+                  featureName="SummaTasks"
+                  icon={SummaTasks}
+                  bgColor="green-gradient"
+                  tabLink="/dashboard/summa-tasks"
+                  isActive={pathname === "/dashboard/summa-tasks"}
                 />
               </div>
             </div>
@@ -75,6 +80,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
                   bgColor="bright-yellow-gradient"
                   isActive={pathname === "/dashboard/notes"}
                   tabLink="/dashboard/notes"
+                />
+                <SidebarItem
+                  featureName="Summarized Files"
+                  icon={SummarizedText}
+                  bgColor="purple-gradient"
+                  isActive={pathname === "/dashboard/summarized-files"}
+                  tabLink="/dashboard/summarized-files"
                 />
               </div>
             </div>

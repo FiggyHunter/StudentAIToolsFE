@@ -108,3 +108,13 @@ h1,h2,h3,h4,h5,h6 {
   background: rgb(142,135,33);
   background: linear-gradient(150deg, rgba(142,135,33,1) 0%, rgba(181,173,48,1) 100%);
 }
+
+.grey-gradient {
+  background: rgb(74,74,74);
+  background: linear-gradient(150deg, rgba(74,74,74,1) 0%, rgba(115,115,111,1) 100%);
+}
+
+.purple-gradient {
+  background: rgb(119,45,181);
+  background: linear-gradient(150deg, rgba(119,45,181,1) 0%, rgba(164,77,219,1) 100%);
+}
