@@ -16,10 +16,11 @@ export default function Page() {
   useEffect(() => {
     fetchAllNotes(setNotes);
   }, []);
-
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-      <Note id="2323" />
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
+      {notes.map((note, index) => (
+        <Note id={note.id} key={index} />
+      ))}
     </div>
   );
 }
