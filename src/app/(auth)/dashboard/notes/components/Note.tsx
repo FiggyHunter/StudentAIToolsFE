@@ -7,8 +7,8 @@ type NoteProps = {
 
 const Note:React.FC<NoteProps> = ({id}) => {
   return (
-    <div className='aspect-square bg-[#F7F18E] p-4 flex flex-col gap-4 w-full rounded-2xl'>
-        <div className='flex gap-20 justify-between items-center'>
+    <div className='aspect-square bg-[#F7F18E] p-4 flex flex-col gap-4 w-full rounded-2xl box-border'>
+        <div className='flex gap-2 justify-between items-center'>
             <p className='text-extrabold text-xl text-[#82362D]'>Ado je baba</p>
             <Link href={`/dashboard/notes/edit/${id}`} className='min-w-10 min-h-10 flex items-center justify-center rounded-full bg-black hover:bg-black/80 cursor-pointer'>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@ const Note:React.FC<NoteProps> = ({id}) => {
                 </svg>
             </Link>
         </div>
-        <p className='text-medium text-base text-[#82362D] text-wrap'>Hahahaha q hahah q ha ha ha ha q hahahahahah q hah aha hahaha</p>
+        <p className='text-medium text-base text-[#82362D] text-wrap w-full line-clamp-2'>Hahahaha q hahah q ha ha ha ha q hahahahahah q hah aha hahaha</p>
     </div>
   )
 }
