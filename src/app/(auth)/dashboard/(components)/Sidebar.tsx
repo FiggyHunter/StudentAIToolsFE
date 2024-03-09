@@ -2,8 +2,9 @@
 
 import SidebarItem from "./SidebarItem"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-import { fileToMd, MdToSummary, TasksFromMd, AiCheckGrammar, TextToSpeech } from "../icons"
+import { fileToMd, MdToSummary, TasksFromMd, AiCheckGrammar, TextToSpeech, Notes } from "../icons"
 import { useState } from "react";
 
 interface SidebarProps {
@@ -17,6 +18,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
     toggleSidebar(false);
   };
 
+  const pathname = usePathname();
+
   return (
     <div className={`flex flex-col gap-10 justify-between fixed lg:left-0 top-0 w-[350px] box-border bg-primaryColor p-7 overflow-auto h-[100vh] transition-all duration-700 ${isSidebarOpen ? 'left-0' : 'left-[-350px]'} z-40`}>
         <div className="flex flex-col gap-10">
@@ -27,39 +30,51 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
               <path d="M1.52148 1.19507L23.8072 23.4808" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div className="flex flex-col gap-4">
-            <span className="text-primaryTint3 uppercase text-[12px] tracking-normal font-bold">Features</span>
-            <div className="flex flex-col gap-2 w-full">
-              <SidebarItem
-                featureName="File To .md"
-                icon={fileToMd}
-                bgColor="red-gradient"
-              />
-              <SidebarItem
-                featureName="Summary From .md"
-                icon={MdToSummary}
-                bgColor="blue-gradient"
-              />
-              <SidebarItem
-                featureName="Tasks from .md"
-                icon={TasksFromMd}
-                bgColor="green-gradient"
-                isActive={true}
-              />
-              <SidebarItem
-                featureName="AI Check Grammar"
-                icon={AiCheckGrammar}
-                bgColor="lime-gradient"
-              />
-              <SidebarItem
-                featureName="Text to speech"
-                icon={TextToSpeech}
-                bgColor="orange-gradient"
-              />
+          <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-4">
+              <span className="text-primaryTint3 uppercase text-[12px] tracking-normal font-bold">Features</span>
+              <div className="flex flex-col gap-2 w-full">
+                <SidebarItem
+                  featureName="File To .md"
+                  icon={fileToMd}
+                  bgColor="red-gradient"
+                />
+                <SidebarItem
+                  featureName="Summary From .md"
+                  icon={MdToSummary}
+                  bgColor="blue-gradient"
+                />
+                <SidebarItem
+                  featureName="Tasks from .md"
+                  icon={TasksFromMd}
+                  bgColor="green-gradient"
+                />
+                <SidebarItem
+                  featureName="AI Check Grammar"
+                  icon={AiCheckGrammar}
+                  bgColor="lime-gradient"
+                />
+                <SidebarItem
+                  featureName="Text to speech"
+                  icon={TextToSpeech}
+                  bgColor="orange-gradient"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <span className="text-primaryTint3 uppercase text-[12px] tracking-normal font-bold">Personal</span>
+              <div className="flex flex-col gap-2 w-full">
+                <SidebarItem
+                  featureName="My Notes"
+                  icon={Notes}
+                  bgColor="bright-yellow-gradient"
+                  isActive={pathname === "/dashboard/notes"}
+                />
+              </div>
             </div>
           </div>
         </div>
-        <Link href="" className="button special no-underline">Upgrade your plan</Link>
+        <Link href="" className="button special no-underline mt-10">Upgrade your plan</Link>
     </div>
   )
 }

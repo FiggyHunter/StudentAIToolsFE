@@ -96,3 +96,7 @@ h1,h2,h3,h4,h5,h6 {
   background: linear-gradient(150deg, rgba(246,211,84,1) 0%, rgba(159,104,21,1) 100%);
 }
 
+.bright-yellow-gradient {
+  background: rgb(142,135,33);
+  background: linear-gradient(150deg, rgba(142,135,33,1) 0%, rgba(181,173,48,1) 100%);
+}
