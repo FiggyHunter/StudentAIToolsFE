@@ -1,13 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Note from "./components/Note";
+import Note from "../summa-craft/components/Note";
 import { fetchAllNotes } from "@/apiHandlers/notes";
 import Link from "next/link";
-
-// Fetch arr notes
-// store u state
-//
 
 export default function Page() {
   const [notes, setNotes] = useState();

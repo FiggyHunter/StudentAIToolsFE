@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import SidebarItem from "./SidebarItem"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import SidebarItem from "./SidebarItem";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { SummaCraft, SummaPlus, SummaTasks, SyntaxSense, SpeecifyMe, Notes, SummarizedText } from "../icons"
 import { LightLogo } from "../icons"
@@ -13,7 +13,6 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
-
   const closeSidebar = () => {
     toggleSidebar(false);
   };
@@ -94,7 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         </div>
         <Link href="" className="button special no-underline mt-10">Upgrade your plan</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
