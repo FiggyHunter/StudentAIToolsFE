@@ -16,5 +16,9 @@ export default function Home() {
     }
   }, [token?.decodedToken]);
 
-  return <h1 className="text-white">Ado je baba</h1>;
+  return (
+    <h1 className="text-white">
+      You focus on learning, we will take care of the rest.
+    </h1>
+  );
 }

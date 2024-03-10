@@ -6,6 +6,8 @@ import { jwtDecode } from "jwt-decode";
 import { AddFile } from "@/apiHandlers/pdf";
 import { getSummaries } from "@/apiHandlers/summaries";
 import { fetchAllNotes } from "@/apiHandlers/notes";
+import { summarizeMix } from "@/apiHandlers/openai";
+import { SummarizedText } from "../icons";
 
 export default function Home() {
   const router = useRouter();
@@ -19,6 +21,11 @@ export default function Home() {
 
   const [isNotesShowed, setIsNotesShowed] = useState(null);
   const [isSummarizeShowed, setIsSummarizeShowed] = useState(null);
+  const [generatedSummary, setGeneratedSummary] = useState("");
+
+  console.log(selectedNote);
+  console.log(selectedSummary);
+  console.log(generatedSummary);
 
   useEffect(() => {
     if (jwt === "some.token" || !token) {
@@ -100,15 +107,27 @@ export default function Home() {
       </div>
 
       <div className="max-w-[400px] h-[1px] bg-white/10"></div>
-
-      <div className="button primary w-fit">GENERATE SUMMARIZE PLUS</div>
+      <button
+        onClick={() => {
+          summarizeMix(
+            { text: selectedNote.text, title: selectedNote.title },
+            { text: selectedSummary.text, title: selectedSummary.title },
+            setGeneratedSummary
+          );
+        }}
+        className="button primary w-fit"
+      >
+        GENERATE SUMMARIZE PLUS
+      </button>
 
       <div className="flex flex-col gap-3">
         <h2 className="text-white sm:text-center md:text-left font-bold mb-4 text-2xl">
           Your summarized plus text
         </h2>
         <div className="bg-primaryShade1 border border-solid border-primaryTint2 text-text text-base p-4 rounded-lg">
-          Waiting for your text to be sumarized
+          {generatedSummary === ""
+            ? "Waiting for your text to be sumarized"
+            : generatedSummary}
         </div>
       </div>
 

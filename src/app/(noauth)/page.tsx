@@ -1,15 +1,15 @@
 "use client";
-
-import { getAllUsers } from "@/apiHandlers/user";
 import { useEffect, useState } from "react";
 import "@/styles/globals.css";
-import { useJwtStore } from "@/stores/useJWTStore";
-import useProtectedRoute from "@/hooks/useProtectedRoute";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  useEffect(() => {}, []);
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/login");
+  }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-red-500"></main>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
   );
 }
