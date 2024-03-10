@@ -24,7 +24,7 @@ const useLogin = () => {
   const handleLogin = async (router) => {
     try {
       // setButtonLoading(buttonId, true);
-      await loginValidator(login, setLoginErrors);
+      await loginValidator(loginFormData, setLoginErrors);
       const res = await loginUser(loginFormData);
       if (res.status === "401") {
         setLoginErrors({

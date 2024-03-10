@@ -3,17 +3,16 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import useRegister from "@/hooks/useRegister";
-import { useJwtStore } from "@/stores/useJWTStore";
-import { useJwt } from "react-jwt";
+import { jwtDecode } from "jwt-decode";
 
 export default function Register() {
   const router = useRouter();
-  const { jwt, setJWT } = useJwtStore();
-  const token = useJwt(jwt);
+  const jwt = localStorage.getItem("jwtToken") || "some.token";
+  const token = jwt === "some.token" ? null : jwtDecode(jwt);
 
   useEffect(() => {
     if (token && !token.isExpired) router.push("/dashboard");
-  }, [jwt]);
+  }, [token]);
   const {
     handleInputChange,
     handleRegister,
