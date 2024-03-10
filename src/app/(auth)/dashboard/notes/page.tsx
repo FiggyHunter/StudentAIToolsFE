@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Note from "../summarise/components/Note";
+import Note from "../summa-craft/components/Note";
 import { fetchAllNotes } from "@/apiHandlers/notes";
 import Link from "next/link";
 
