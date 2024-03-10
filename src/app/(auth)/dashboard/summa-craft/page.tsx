@@ -3,11 +3,16 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useJwt } from "react-jwt";
 import { jwtDecode } from "jwt-decode";
+import { AddFile } from "@/apiHandlers/pdf";
 
 export default function Home() {
   const router = useRouter();
   const jwt = localStorage.getItem("jwtToken") || "some.token";
   const token = jwt === "some.token" ? null : jwtDecode(jwt);
+  const [pdf, setPdf] = useState("");
+  const handleImageChange = (e) => {
+    setPdf(e.target.files[0]);
+  };
 
   useEffect(() => {
     if (jwt === "some.token" || !token) {
@@ -51,11 +56,15 @@ export default function Home() {
             className="h-full w-full"
             id="dropzone-file"
             type="file"
+            onChange={(e) => setPdf(e)}
             className="hidden"
           />
         </label>
       </div>
-      <button className="block border-2 cursor-pointer bg-white text-black border-white outline-none border-transparent w-1/3 px-2 py-4  mt-8 mx-auto transition-all duration-200 hover:bg-gray-300 rounded-lg text-xl font-bold uppercase">
+      <button
+        onClick={() => AddFile(pdf)}
+        className="block border-2 cursor-pointer bg-white text-black border-white outline-none border-transparent w-1/3 px-2 py-4  mt-8 mx-auto transition-all duration-200 hover:bg-gray-300 rounded-lg text-xl font-bold uppercase"
+      >
         Upload the PDF
       </button>
     </div>
